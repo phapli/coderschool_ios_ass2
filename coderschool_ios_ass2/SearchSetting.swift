@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+// Model class that represents the user's search settings
+class SearchSettings {
+    var searchString: String?
+    var offerDeal: Bool?
+    var distance: Float = 0
+    var sortBy: YelpSortMode?
+    var category: [String]?
+    
+    init() {
+        
+    }
+}

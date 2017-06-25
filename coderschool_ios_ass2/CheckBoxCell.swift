@@ -8,8 +8,16 @@
 
 import UIKit
 
+protocol CheckBoxCellDelegate {
+    func checkboxCell(checkboxCell: CheckBoxCell)
+}
+
 class CheckBoxCell: UITableViewCell {
 
+    var delegate: CheckBoxCellDelegate!
+    
+    @IBOutlet weak var checkboxLabel: UILabel!
+    @IBOutlet weak var checkboxControl: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +28,8 @@ class CheckBoxCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    @IBAction func onCheck(_ sender: UIButton) {
+        self.delegate.checkboxCell(checkboxCell: self)
+    }
 }
